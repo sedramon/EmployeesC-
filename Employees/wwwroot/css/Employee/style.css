@@ -1,0 +1,8 @@
+.red-row {
+    background-color: red;
+    color: white; /* Adjust text color for better visibility */
+}
+
+th, td {
+    text-align: center;
+}
