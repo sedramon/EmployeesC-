@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" href="/css/Employee/style.css"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
  
 <div class="d-flex flex-column align-items-center justify-content-center">
 
@@ -34,7 +35,7 @@
 
     <h2>Employee Pie Chart %</h2>
     
-    <canvas id="employeePieChart" width="400" height="400"></canvas>
+    <canvas id="employeePieChart" width="600" height="600"></canvas>
 
 
         
@@ -44,7 +45,7 @@
 
 <script>
     // Extract employee names and total work time percentages
-    var labels = @Html.Raw(Json.Serialize(Model.Select(e => e.EmployeeName)));
+    var labels = @Html.Raw(Json.Serialize(Model.Select(e => e.EmployeeName ?? "Undefined")));
     var hours = @Html.Raw(Json.Serialize(Model.Select(e => e.TotalWorkTime)));
     
         // RACUNAMO PROCENTE
@@ -53,6 +54,8 @@
 
     // Get the canvas element
     var ctx = document.getElementById('employeePieChart').getContext('2d');
+    
+    Chart.register(ChartDataLabels);
 
     // Create the pie chart
     var pieChart = new Chart(ctx, {
@@ -62,11 +65,20 @@
             datasets: [{
                 data: percentages,
                 backgroundColor: [
-                    'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'brown', 'pink', 'gray',
+                    'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'brown', 'pink', 'gray', 'black',
                 ],
             }],
         },
         options: {
+            plugins: {
+                          datalabels: {
+                                formatter: (value) => {
+                                    return value + '%';
+                                },
+                                color: '#fff',
+                                offset: 50,
+                            },
+                        },
                 responsive: false,
                 }
                

@@ -31,3 +31,4 @@ C:\Users\Aljosa\RiderProjects\Employees\Employees\obj\Debug\net8.0\ref\Employees
 C:\Users\Aljosa\RiderProjects\Employees\Employees\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Aljosa\RiderProjects\Employees\Employees\obj\Debug\net8.0\Employees.csproj.AssemblyReference.cache
 C:\Users\Aljosa\RiderProjects\Employees\Employees\obj\Debug\net8.0\Employees.csproj.CopyComplete
+C:\Users\Aljosa\RiderProjects\Employees\Employees\obj\Debug\net8.0\Employees.sourcelink.json
